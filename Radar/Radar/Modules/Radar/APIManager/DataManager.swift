@@ -13,6 +13,7 @@ import MapKit
 class DataManager: NSObject, ResultInputManagerProtocol, CLLocationManagerDelegate {
   weak var presenter: protocol<ResultPresenterProtocol, ResultManagerOutputProtocol>?
   let coreLocationManager = CLLocationManager()
+  var fourSquareAPI = FourSquareManager.sharedInstance
   
   override init() {
     
@@ -43,6 +44,7 @@ class DataManager: NSObject, ResultInputManagerProtocol, CLLocationManagerDelega
       let center = CLLocationCoordinate2D(latitude: newLocation.coordinate.latitude, longitude: newLocation.coordinate.longitude)
       let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
       presenter?.updateRegion(region)
+      fourSquareAPI.getVenues(newLocation)
       // userLocationObject = newLocation
       // userLocation = newLocation.coordinate
       // manager.stopUpdatingLocation()

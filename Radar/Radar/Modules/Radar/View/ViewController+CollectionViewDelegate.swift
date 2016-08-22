@@ -31,16 +31,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     return cell
   }
   
-  
   func collectionView(collectionView: UICollectionView,
-                      layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath
+    layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath
     indexPath: NSIndexPath) -> CGSize {
-    let cellWidth = (Configuration.sharedInstance.appWidth - 30) / 3
-    let size = CGSizeMake(cellWidth, cellWidth + 130)
-    
-    return size
+      let cellWidth = (AppConfiguration.sharedInstance.appWidth - 30) / 3
+      let size = CGSizeMake(cellWidth, cellWidth + 130)
+      
+      return size
   }
-
   
   // MARK: UICollectionViewDelegate
   

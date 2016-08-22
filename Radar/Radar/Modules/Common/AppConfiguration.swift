@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class Configuration {
+class AppConfiguration {
   
-  class var sharedInstance: Configuration {
+  class var sharedInstance: AppConfiguration {
     struct Singleton {
-      static let instance = Configuration()
+      static let instance = AppConfiguration()
     }
     return Singleton.instance
   }
