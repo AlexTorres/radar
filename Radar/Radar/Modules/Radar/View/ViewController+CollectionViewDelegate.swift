@@ -20,24 +20,33 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of items
-    return 10
+    guard venues != nil else {
+      return 0
+    }
+    return venues!.count
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ReuseCell", forIndexPath: indexPath)
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(VenueCollectionViewCell.kVenueReusableName, forIndexPath: indexPath) as? VenueCollectionViewCell
     
     // Configure the cell
+    cell?.venue = self.venues?[indexPath.row]
     
-    return cell
+    return cell!
   }
   
   func collectionView(collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath
     indexPath: NSIndexPath) -> CGSize {
       let cellWidth = (AppConfiguration.sharedInstance.appWidth - 30) / 3
-      let size = CGSizeMake(cellWidth, cellWidth + 130)
+      let size = CGSizeMake(cellWidth, cellWidth + 50)
       
       return size
+  }
+  
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    let venue = venues?[indexPath.row]
+    presenter?.searchVenueWithID(venue?.id)
   }
   
   // MARK: UICollectionViewDelegate
@@ -70,5 +79,4 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
    }
    */
-  
 }

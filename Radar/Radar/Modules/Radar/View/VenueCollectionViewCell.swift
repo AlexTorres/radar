@@ -8,9 +8,19 @@
 
 import UIKit
 
-let kReusableName = "VenueCollectionViewCell"
-
 class VenueCollectionViewCell: UICollectionViewCell {
   
-  var venue: VenueItem?
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var mayorLabel: UILabel!
+  
+  static let kVenueReusableName = "VenueCollectionViewCell"
+  var venue: VenueItem? {
+    didSet {
+      nameLabel.text = venue?.name!
+      if venue?.mayorSummary != nil {
+        mayorLabel.text = venue?.mayorSummary!
+      }
+      
+    }
+  }
 }

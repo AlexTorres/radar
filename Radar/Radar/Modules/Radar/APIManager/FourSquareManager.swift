@@ -47,10 +47,15 @@ class FourSquareManager: FourSquareAPI {
     searchTask.start()
   }
   
-  func getVenueByID(id: String?) {
-    //
+  func getVenueFromFourSquareAPI(venueID: String?) {
+    
+    let session = Session.sharedSession()
+        let searchTask = session.venues.get(venueID!) {
+      guard let response = $0.response else {
+        return
+      }
+      print(response["venue"])
+    }
+    searchTask.start()
   }
-  
-  // var configuration = Configuration(client: client)
-  // Session.setupSharedSessionWithConfiguration(configuration)
 }

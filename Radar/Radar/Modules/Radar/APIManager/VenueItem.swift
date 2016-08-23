@@ -15,6 +15,7 @@ struct VenueItem: Mappable {
   var longitude: Double?
   var id: String?
   var name: String?
+  var mayorSummary: String?
   
   init?(_ map: Map) {
   }
@@ -24,9 +25,10 @@ struct VenueItem: Mappable {
     longitude <- map["location.lng"]
     id <- map["id"]
     name <- map["name"]
+    mayorSummary <- map["mayor.summary"]
   }
   
-   func distance(location: CLLocationCoordinate2D) -> Double {
+  func distance(location: CLLocationCoordinate2D) -> Double {
     
     let distanceX = abs(latitude! - location.latitude)
     let distanceY = abs(longitude! - location.longitude)

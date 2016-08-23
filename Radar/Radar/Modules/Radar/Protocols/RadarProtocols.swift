@@ -22,6 +22,7 @@ protocol ResultPresenterProtocol: class {
   var manager: ResultInputManagerProtocol? { get set }
   
   func startUsingLocation()
+  func searchVenueWithID(venueID: String?)
 }
 protocol ResultInputManagerProtocol: class {
   var presenter: protocol<ResultPresenterProtocol, ResultManagerOutputProtocol>? { get set }
@@ -29,12 +30,13 @@ protocol ResultInputManagerProtocol: class {
   
   func upatedVenuesArrayFromAPI(venues: [VenueItem]?)
   func getUserLocation()
+  func getVenueWithID(venueID: String?)
 }
 protocol FourSquareAPI: class {
   var dataManager: ResultInputManagerProtocol? { get set }
   
   func getVenuesFromFourSquareAPI(location: CLLocation?)
-  func getVenueByID(id: String?)
+    func getVenueFromFourSquareAPI(venueID: String?)
 }
 protocol ResultManagerOutputProtocol: class {
   func entiesLoaded()

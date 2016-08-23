@@ -36,20 +36,44 @@ class ViewController: UIViewController, ResultViewProtocol {
   private func configureView() {
     setNeedsStatusBarAppearanceUpdate()
     navigationController?.navigationBar.barStyle = .Black
-    title = "Find!!"
+    title = "Venues"
     presenter?.startUsingLocation()
   }
   
   private func addViewConnections() {
     wireframe = ResultWireFrame(viewProtocol: self)
   }
+  
   func viewCanInit() {
   }
+  
   func reloadMapWithRegion(region: MKCoordinateRegion?) {
     self.mapView.setRegion(region!, animated: true)
   }
   func reloadVenuesArray(venues: [VenueItem]?) {
-    // TODO implementation
+    
     self.venues = venues
+    self.collectionView.reloadData()
+    addMarksToMap()
+    addAnnotationsFromVenues()
+  }
+  private func addMarksToMap() {
+    removeAnnotations()
+  }
+  private func removeAnnotations() {
+    guard mapView.annotations.count != 0 else {
+      return
+    }
+    mapView.removeAnnotations(mapView.annotations)
+  }
+  
+  private func addAnnotationsFromVenues() {
+    for (_, value) in venues!.enumerate() {
+      let pinLocation = CLLocationCoordinate2DMake(value.latitude!, value.longitude!)
+      let dropPin = MKPointAnnotation()
+      dropPin.coordinate = pinLocation
+      dropPin.title = value.name
+      mapView.addAnnotation(dropPin)
+    }
   }
 }

@@ -32,4 +32,7 @@ class ResultPresenter: ResultPresenterProtocol, ResultManagerOutputProtocol {
   func upatedVenuesArray(venues: [VenueItem]?) {
     view?.reloadVenuesArray(venues)
   }
+  func searchVenueWithID(venueID: String?) {
+    manager?.getVenueWithID(venueID)
+  }
 }
