@@ -13,7 +13,6 @@ class ResultPresenter: ResultPresenterProtocol, ResultManagerOutputProtocol {
   var manager: ResultInputManagerProtocol?
   
   init() {
-    
   }
   func startUsingLocation() {
     manager?.getUserLocation()
@@ -29,5 +28,8 @@ class ResultPresenter: ResultPresenterProtocol, ResultManagerOutputProtocol {
   }
   func updateRegion(region: MKCoordinateRegion?) {
     view?.reloadMapWithRegion(region)
+  }
+  func upatedVenuesArray(venues: [VenueItem]?) {
+    view?.reloadVenuesArray(venues)
   }
 }

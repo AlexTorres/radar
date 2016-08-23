@@ -12,6 +12,7 @@ import MapKit
 class ViewController: UIViewController, ResultViewProtocol {
   var presenter: ResultPresenterProtocol?
   var wireframe: ResultWireFrame?
+  var venues: [VenueItem]?
   
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var collectionView: UICollectionView!
@@ -47,6 +48,8 @@ class ViewController: UIViewController, ResultViewProtocol {
   func reloadMapWithRegion(region: MKCoordinateRegion?) {
     self.mapView.setRegion(region!, animated: true)
   }
-  
+  func reloadVenuesArray(venues: [VenueItem]?) {
+    // TODO implementation
+    self.venues = venues
+  }
 }
-

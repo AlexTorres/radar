@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 import ObjectMapper
 
 struct VenueItem: Mappable {
@@ -16,7 +17,6 @@ struct VenueItem: Mappable {
   var name: String?
   
   init?(_ map: Map) {
-    
   }
   
   mutating func mapping(map: Map) {
@@ -25,5 +25,12 @@ struct VenueItem: Mappable {
     id <- map["id"]
     name <- map["name"]
   }
+  
+   func distance(location: CLLocationCoordinate2D) -> Double {
+    
+    let distanceX = abs(latitude! - location.latitude)
+    let distanceY = abs(longitude! - location.longitude)
+    
+    return distanceX + distanceY
+  }
 }
-
