@@ -29,13 +29,19 @@ class FourSquareManager {
   }
   
   func getVenues(location: CLLocation?) {
-    var parameters = [Parameter.query: "Burgers"]
+    var parameters = [Parameter.query: ""]
     let session = Session.sharedSession()
     parameters += location!.parameters()
     let searchTask = session.venues.search(parameters) {
       (result) -> Void in
       if let response = result.response {
-        // self.venues = response["venues"] as [JSONParameters]?
+        let venuesJson = response["venues"] as! [JSONParameters]?
+        var venues = [VenueItem]()
+        for (_, value) in venuesJson!.enumerate() {
+          let nenuw = VenueItem(JSON: value)
+          venues.append(nenuw!) }
+        
+        print (venuesJson![3])
         // self.tableView.reloadData()
       }
     }

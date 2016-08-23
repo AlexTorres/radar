@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'Radar' do
 pod 'QuadratTouch'
+pod 'ObjectMapper'
 end
 
 target 'RadarTests' do
