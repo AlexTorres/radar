@@ -54,12 +54,14 @@ class DataManager: NSObject, ResultInputManagerProtocol, CLLocationManagerDelega
       actualLocation = newLocation
   }
   
-  func upatedVenuesArrayFromAPI(venues: [VenueItem]?)
-  {
+  func upatedVenuesArrayFromAPI(venues: [VenueItem]?) {
     let sortVenues = venues!.sort({ $0.distance(self.actualLocation!.coordinate) > $1.distance(self.actualLocation!.coordinate) })
     self.presenter?.upatedVenuesArray(sortVenues)
   }
   func getVenueWithID(venueID: String?) {
     fourSquareAPI?.getVenueFromFourSquareAPI(venueID)
+  }
+  func updatedVenueItem(venue: VenueDetailItem?) {
+    presenter?.updatedVenue(venue)
   }
 }

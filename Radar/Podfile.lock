@@ -1,12 +1,18 @@
 PODS:
+  - Alamofire (3.4.1)
+  - AlamofireImage (2.4.1):
+    - Alamofire (~> 3.3)
   - ObjectMapper (1.4.0)
   - QuadratTouch (1.1.1)
 
 DEPENDENCIES:
+  - AlamofireImage
   - ObjectMapper
   - QuadratTouch
 
 SPEC CHECKSUMS:
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  AlamofireImage: 3ccf3347d9ea24580dc11fb892770a0be6a29826
   ObjectMapper: a07ad0462c5adf014adc0f89ef04c29b626e855e
   QuadratTouch: 296d83c63a4328f6f40af9fc728fe24f0e3b00d4
 

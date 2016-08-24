@@ -50,11 +50,12 @@ class FourSquareManager: FourSquareAPI {
   func getVenueFromFourSquareAPI(venueID: String?) {
     
     let session = Session.sharedSession()
-        let searchTask = session.venues.get(venueID!) {
+    let searchTask = session.venues.get(venueID!) {
       guard let response = $0.response else {
         return
       }
-      print(response["venue"])
+      let venueObject = VenueDetailItem(JSON: response["venue"] as! JSONParameters)
+      self.dataManager?.updatedVenueItem(venueObject)
     }
     searchTask.start()
   }

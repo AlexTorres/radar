@@ -15,7 +15,7 @@ protocol ResultViewProtocol: class {
   func viewCanInit()
   func reloadMapWithRegion(region: MKCoordinateRegion?)
   func reloadVenuesArray(venues: [VenueItem]?)
-  // func reloadEntries(sections: [String]?, rows: [[String]]?)
+  func callVenueItem(venue: VenueDetailItem?)
 }
 protocol ResultPresenterProtocol: class {
   var view: ResultViewProtocol? { get set }
@@ -29,6 +29,7 @@ protocol ResultInputManagerProtocol: class {
   var fourSquareAPI: FourSquareAPI? { get set }
   
   func upatedVenuesArrayFromAPI(venues: [VenueItem]?)
+  func updatedVenueItem(venue: VenueDetailItem?)
   func getUserLocation()
   func getVenueWithID(venueID: String?)
 }
@@ -36,11 +37,12 @@ protocol FourSquareAPI: class {
   var dataManager: ResultInputManagerProtocol? { get set }
   
   func getVenuesFromFourSquareAPI(location: CLLocation?)
-    func getVenueFromFourSquareAPI(venueID: String?)
+  func getVenueFromFourSquareAPI(venueID: String?)
 }
 protocol ResultManagerOutputProtocol: class {
   func entiesLoaded()
   func rowsFromManager(sections: [String]?, rows: [[String]]?)
   func updateRegion(region: MKCoordinateRegion?)
   func upatedVenuesArray(venues: [VenueItem]?)
+  func updatedVenue(venue: VenueDetailItem?)
 }

@@ -79,12 +79,12 @@
                                                 <exclude reference="ORc-NI-jmt"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="NH8-6l-bHA"/>
-                                                <exclude reference="RM2-NX-ohf"/>
-                                                <exclude reference="eey-ZX-cic"/>
                                                 <exclude reference="AHd-mf-OfK"/>
                                                 <exclude reference="MSH-r6-NvZ"/>
                                                 <exclude reference="kts-3T-loC"/>
+                                                <exclude reference="NH8-6l-bHA"/>
+                                                <exclude reference="RM2-NX-ohf"/>
+                                                <exclude reference="eey-ZX-cic"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -93,12 +93,12 @@
                                                 <include reference="ORc-NI-jmt"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="NH8-6l-bHA"/>
-                                                <include reference="RM2-NX-ohf"/>
-                                                <include reference="eey-ZX-cic"/>
                                                 <include reference="AHd-mf-OfK"/>
                                                 <include reference="MSH-r6-NvZ"/>
                                                 <include reference="kts-3T-loC"/>
+                                                <include reference="NH8-6l-bHA"/>
+                                                <include reference="RM2-NX-ohf"/>
+                                                <include reference="eey-ZX-cic"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -129,11 +129,11 @@
                                 <exclude reference="YAA-kn-qV8"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="kQQ-ux-ove"/>
-                                <exclude reference="nkk-X6-DF5"/>
                                 <exclude reference="ISl-RU-L1S"/>
                                 <exclude reference="UzY-Ox-iLj"/>
                                 <exclude reference="myw-3q-4qm"/>
+                                <exclude reference="kQQ-ux-ove"/>
+                                <exclude reference="nkk-X6-DF5"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -142,11 +142,11 @@
                                 <include reference="YAA-kn-qV8"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="kQQ-ux-ove"/>
-                                <include reference="nkk-X6-DF5"/>
                                 <include reference="ISl-RU-L1S"/>
                                 <include reference="UzY-Ox-iLj"/>
                                 <include reference="myw-3q-4qm"/>
+                                <include reference="kQQ-ux-ove"/>
+                                <include reference="nkk-X6-DF5"/>
                             </mask>
                         </variation>
                     </view>
@@ -154,7 +154,7 @@
                     <connections>
                         <outlet property="collectionView" destination="YAA-kn-qV8" id="VFE-k0-ezA"/>
                         <outlet property="mapView" destination="u22-x3-Mcd" id="hDs-CK-TBF"/>
-                        <segue destination="0Sa-53-hBk" kind="show" identifier="VenueDetailSegue" action="showDetailViewController:sender:" id="bkF-Qz-1cv"/>
+                        <segue destination="0Sa-53-hBk" kind="show" identifier="VenueDetailSegue" id="bkF-Qz-1cv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -170,6 +170,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uUs-xB-uXq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gqk-8t-ol7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iXL-5Y-hqp">
@@ -220,12 +221,12 @@
                                 <exclude reference="Jmg-WV-cj1"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="JdY-Jl-dRg"/>
-                                <exclude reference="dtb-Ie-KF8"/>
-                                <exclude reference="h4m-qh-DRZ"/>
                                 <exclude reference="EFf-tz-tID"/>
                                 <exclude reference="cPs-uh-n0H"/>
                                 <exclude reference="iHU-qp-hqk"/>
+                                <exclude reference="JdY-Jl-dRg"/>
+                                <exclude reference="dtb-Ie-KF8"/>
+                                <exclude reference="h4m-qh-DRZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -234,15 +235,16 @@
                                 <include reference="Jmg-WV-cj1"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="JdY-Jl-dRg"/>
-                                <include reference="dtb-Ie-KF8"/>
-                                <include reference="h4m-qh-DRZ"/>
                                 <include reference="EFf-tz-tID"/>
                                 <include reference="cPs-uh-n0H"/>
                                 <include reference="iHU-qp-hqk"/>
+                                <include reference="JdY-Jl-dRg"/>
+                                <include reference="dtb-Ie-KF8"/>
+                                <include reference="h4m-qh-DRZ"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="fpZ-jg-Gxa"/>
                     <connections>
                         <outlet property="mapView" destination="iXL-5Y-hqp" id="Ked-Os-Zmd"/>
                         <outlet property="venueImage" destination="Jmg-WV-cj1" id="Ms7-eF-Rkg"/>
@@ -260,6 +262,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VXv-vE-wkM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -13,6 +13,8 @@ class ViewController: UIViewController, ResultViewProtocol {
   var presenter: ResultPresenterProtocol?
   var wireframe: ResultWireFrame?
   var venues: [VenueItem]?
+  var detailViewController: VenueDetail?
+  var venueDetail: VenueDetailItem?
   
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var collectionView: UICollectionView!
@@ -75,5 +77,13 @@ class ViewController: UIViewController, ResultViewProtocol {
       dropPin.title = value.name
       mapView.addAnnotation(dropPin)
     }
+  }
+  func callVenueItem(venue: VenueDetailItem?) {
+    venueDetail = venue
+    performSegueWithIdentifier(VenueDetail.venueDetailSegue, sender: self)
+  }
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    let detailView = segue.destinationViewController as? VenueDetail
+    detailView?.venueDetail = venueDetail
   }
 }
