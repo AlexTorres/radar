@@ -1,6 +1,6 @@
 # radar
 This test uses cocoa pods.
-Go to poject and install more info
+Go to project and install!! , more info :
 * Cocoa pods  [Cocoa Pods](https://cocoapods.org)
 
 ## Architecture ##
